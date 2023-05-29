@@ -1,0 +1,25 @@
+<div class="container mt-3">
+    <p>dashboard works!</p>
+    <a routerLink="/admin/product/add">Add product</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>STT</th>
+                <th>name</th>
+                <th>price</th>
+                <th>action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of products; index as i">
+                <td>{{i+1}}</td>
+                <td>{{product.name}}</td>
+                <td>{{product.price}}</td>
+                <td>
+                    <button class="btn btn-danger" (click)="onRemove(product.id!)">Remove</button>
+                    <button class="btn btn-info"><a [routerLink]="'/admin/product/edit/'+product.id">edit</a></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
